@@ -1,0 +1,449 @@
+/* Define CSS Variables */
+:root {
+    --primary-bg: #0d1117;
+    --primary-accent: #1e81b0;
+    --secondary-accent: #1b2735;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b3b8;
+    --box-shadow: rgba(0, 0, 0, 0.6);
+    --box-highlight: rgba(255, 255, 255, 0.2);
+    --transition-speed: 0.3s;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--secondary-accent);
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 6px var(--box-shadow);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: var(--primary-accent);
+    margin: 0;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: var(--secondary-accent);
+    color: var(--text-primary);
+    box-shadow: 0 2px 5px var(--box-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand .logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.navbar-menu ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-menu ul li {
+    margin: 0 15px;
+}
+
+.navbar-menu ul li a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 16px;
+    transition: color var(--transition-speed) ease;
+}
+
+.navbar-menu ul li a:hover,
+.navbar-menu ul li a.active {
+    color: var(--primary-accent);
+}
+
+.navbar-actions {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    padding: 5px 10px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: var(--secondary-accent);
+    color: var(--text-primary);
+    margin-right: 10px;
+    transition: border-color var(--transition-speed) ease;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: var(--primary-accent);
+}
+
+.search-bar::placeholder {
+    color: #aaa;
+}
+
+.login-button {
+    padding: 5px 10px;
+    background-color: var(--primary-accent);
+    border: none;
+    border-radius: 4px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: background-color var(--transition-speed) ease;
+}
+
+.login-button:hover {
+    background-color: #ff6200;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+h1, h2, h3 {
+    color: var(--primary-accent);
+}
+
+/* Neomorphic Button */
+button, a.play-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    background: var(--primary-accent);
+    border: none;
+    border-radius: 10px;
+    color: var(--text-primary);
+    cursor: pointer;
+    box-shadow: 5px 5px 10px var(--box-shadow), -5px -5px 10px var(--box-highlight);
+    transition: all var(--transition-speed) ease;
+    text-decoration: none;
+}
+
+button:hover, a.play-button:hover {
+    box-shadow: 2px 2px 5px var(--box-shadow), -2px -2px 5px var(--box-highlight);
+    background: var(--primary-accent);
+}
+
+/* Game List Page */
+.game-list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.game-item {
+    background-color: var(--secondary-accent);
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px var(--box-shadow), -5px -5px 15px var(--box-highlight);
+    text-align: center;
+    transition: transform var(--transition-speed) ease;
+}
+
+.game-item:hover {
+    transform: translateY(-5px);
+}
+
+.game-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.game-item h2 {
+    margin: 1rem 0;
+}
+
+/* Game Detail Page */
+.game-detail-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.game-thumbnail {
+    width: 80%;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+}
+
+/* Home Page */
+.home-container {
+    text-align: center;
+}
+
+.category-item {
+    background: var(--secondary-accent);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px var(--box-shadow), -5px -5px 15px var(--box-highlight);
+    transition: transform var(--transition-speed) ease;
+}
+
+.category-item:hover {
+    transform: translateY(-10px);
+}
+
+/* Play Game Page */
+.game-iframe-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: var(--secondary-accent);
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px var(--box-shadow), -5px -5px 15px var(--box-highlight);
+    overflow: hidden;
+}
+
+.game-iframe-container iframe {
+    width: 100%;
+    height: 600px;
+    border: none;
+    border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .navbar-menu ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-menu ul li {
+        margin: 10px 0;
+    }
+
+    button, a.play-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .game-thumbnail {
+        width: 100%;
+    }
+}
+
+
+/* Button on home page */
+/* Basic reset for list items */
+ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+}
+
+/* Style the category buttons */
+.category-button {
+    display: inline-block; /* Make them inline buttons */
+    padding: 10px 20px; /* Add padding to make them look like buttons */
+    margin: 5px; /* Space between buttons */
+    background-color: var(--secondary-accent); /* Background color */
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+}
+
+/* Hover effect */
+.category-button:hover {
+    background-color: var(--primary-accent); /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Focus effect for accessibility */
+.category-button:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Add a focus ring */
+}
+
+/* Optional: Active state when the button is clicked */
+.category-button:active {
+    background-color: #004085; /* Darker background when clicked */
+    transform: scale(1); /* Reset the scale when active */
+}
+
+
+/* game List page main */
+/* Game List Page Styles */
+.game-list-page {
+    background-color: #0d1117;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #1b2735;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand .logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.navbar-menu ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-menu ul li {
+    margin: 0 15px;
+}
+
+.navbar-menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.navbar-menu ul li a:hover,
+.navbar-menu ul li a.active {
+    color: #1e81b0;
+}
+
+.navbar-actions {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    padding: 5px 10px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: #1b2735;
+    color: #fff;
+    margin-right: 10px;
+    transition: border-color 0.3s ease;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: #1e81b0;
+}
+
+.login-button {
+    padding: 5px 10px;
+    background-color: #1e81b0;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #ff6200;
+}
+
+/* Main Section */
+.game-list-main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.game-category {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.category-heading {
+    font-size: 2rem;
+    color: #1e81b0;
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.game-card {
+    background-color: #1b2735;
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6), -5px -5px 15px rgba(255, 255, 255, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+}
+
+.game-thumbnail {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.game-title {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.game-play-btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    background-color: #1e81b0;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6), -5px -5px 10px rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.game-play-btn:hover {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6), -2px -2px 5px rgba(255, 255, 255, 0.2);
+    background-color: #ff6200;
+}

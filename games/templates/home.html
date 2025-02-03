@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Portal</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="home-container">
+    <header class="navbar">
+        <div class="navbar-brand">
+            <img src="{% static 'img/logo.png' %}" alt="Logo" class="logo">
+            <span>Crazy Games</span>
+        </div>
+        <nav class="navbar-menu">
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Trending</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">Favorites</a></li>
+            </ul>
+        </nav>
+        <div class="navbar-actions">
+            <input type="text" placeholder="Search" class="search-bar">
+            <button class="login-button">Log In</button>
+        </div>
+    </header>
+    
+    <main class="container">
+        <h1 class="category-title">🎮 Games in {{ category.name }}</h1>
+        <h1>Game Categories</h1>
+        <ul>
+            {% for category in categories %}
+                <li><a href="{% url 'game_list' category.slug %}" class="category-button">{{ category.name }}</a></li>
+            {% endfor %}
+        </ul>
+        
+        <div class="game-list">
+            {% for game in games %}
+            <div class="game-card">
+                <img src="{{ game.thumbnail_url }}" alt="{{ game.title }} thumbnail" class="game-thumbnail">
+                <h2 class="game-title">{{ game.title }}</h2>
+                <a href="{% url 'game_detail' game.id %}" class="play-button">Play Now</a>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+    
+</body>
+
+</html>
